@@ -9,10 +9,6 @@ branches:
   only:
     - main
 
-env:
-  global:
-    - ALI_REGISTRY=registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member
-
 before_script:
   - docker login --username=$ALI_USERNAME -p=$ALI_PASSWORD registry.cn-shanghai.aliyuncs.com
 
