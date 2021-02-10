@@ -1,0 +1,27 @@
+language: bash
+
+services:
+  - docker
+
+sudo: required
+
+branches:
+  only:
+    - main
+
+env:
+  global:
+    - ALI_REGISTRY=registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member
+
+before_script:
+  - docker login --username=$ALI_USERNAME -p=$ALI_PASSWORD registry.cn-shanghai.aliyuncs.com
+
+script:
+  - echo "Stop & Delete Docker Image"
+  - echo 'docker ps -aq --filter name=pioneer-store-member'
+  - docker stop  'docker ps -aq --filter name=pioneer-store-member'
+  - docker rm    'docker ps -aq --filter name=pioneer-store-member'
+  - echo "Tag Docker Image"
+  - docker tag latest registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
+  - echo "Push Docker Image"
+  - docker push registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
