@@ -12,6 +12,7 @@ script:
   - docker stop  'docker ps -aq --filter name=pioneer-store-member'
   - docker rm    'docker ps -aq --filter name=pioneer-store-member'
   - echo "Tag Docker Image"
+  - docker build -t pioneer-store-member:latest
   - docker tag latest registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
   - echo "Push Docker Image"
   - docker push registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
