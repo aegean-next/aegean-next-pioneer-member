@@ -3,8 +3,6 @@ language: bash
 services:
   - docker
 
-sudo: required
-
 branches:
   only:
     - main
