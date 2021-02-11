@@ -7,30 +7,25 @@ branches:
 addons:
   ssh_known_hosts: $server_ip
 before_install:
-- echo "生产秘钥"
+- echo "Produce SSH Key"
 - openssl aes-256-cbc -K $encrypted_3facdd645a02_key -iv $encrypted_3facdd645a02_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
-- echo "生产秘钥成功"
-- echo "授权秘钥"
+- echo "Auth SSH Key"
 - chmod 600 ~/.ssh/id_rsa
-- echo "授权秘钥成功"
 before_script:
-  - echo "登录阿里云容器服务"
+  - echo "Login Ali ACR"
   - docker login --username=$ALI_USERNAME -p=$ALI_PASSWORD registry.cn-shanghai.aliyuncs.com
-  - echo "登录阿里云容器服务成功"
 script:
-  - echo "构建容器镜像"
+  - echo "Build Docker"
   - docker build -t latest .
-  - echo "标记容器镜像"
-  - docker tag latest registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:latest
-  - echo "推送容器镜像"
-  - docker push registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:latest
-  - echo "推送容器镜像成功"
+  - echo "Tag Docker"
+  - docker tag latest registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
+  - echo "Push Docker"
+  - docker push registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
 affter_success:
-  - echo "登录目标服务器"
+  - echo "Login Ali Service"
   - ssh -o "StrictHostKeyChecking no" -i ~/.ssh/id_rsa root@$server_ip
-  - echo "进入目标文件夹"
+  - echo "Enter Target Dir"
   - cd /root/.docker-config
-  - echo "执行 Docker Compose"
+  - echo "Execute Docker Compose"
   - docker-compose up -d
-  - echo "执行 Docker Compose 成功"
