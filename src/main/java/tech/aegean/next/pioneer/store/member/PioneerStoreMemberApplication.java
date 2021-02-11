@@ -11,7 +11,7 @@ public class PioneerStoreMemberApplication {
 
     @RequestMapping("/")
     public String home() {
-        return "Hello 2021";
+        return "Hello 2021，Happy New Year！";
     }
 
     public static void main(String[] args) {
