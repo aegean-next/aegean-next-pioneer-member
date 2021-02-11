@@ -24,4 +24,4 @@ script:
   - docker push registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
 affter_success:
   - echo "Login Ali Service"
-  - ssh -o "StrictHostKeyChecking no" -i ~/.ssh/id_rsa root@$server_ip "cd /root/.docker-config; docker-compose up -d; exit"
+  - ssh -o "StrictHostKeyChecking no" -i ~/.ssh/id_rsa root@$server_ip "  - docker login --usern; me=$ALI_USERNAME -p=$ALI_PASSWORD registry.cn-shanghai.aliyuncs.com；cd /root/.docker-config; docker-compose up -d; exit"
