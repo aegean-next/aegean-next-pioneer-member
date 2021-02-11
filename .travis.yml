@@ -19,9 +19,9 @@ script:
   - echo "Build Docker"
   - docker build -t latest .
   - echo "Tag Docker"
-  - docker tag latest registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
+  - docker tag latest registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:latest
   - echo "Push Docker"
-  - docker push registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:$TRAVIS_JOB_ID
+  - docker push registry.cn-shanghai.aliyuncs.com/aegean-next/pioneer-member:latest
 affter_success:
   - echo "Login Ali Service"
   - ssh -o "StrictHostKeyChecking no" -i ~/.ssh/id_rsa root@$server_ip "  - docker login --usern; me=$ALI_USERNAME -p=$ALI_PASSWORD registry.cn-shanghai.aliyuncs.com；cd /root/.docker-config; docker-compose up -d; exit"
