@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <docker.image.prefix>aegean-next-pioneer</docker.image.prefix>
-        <version.aegean>1.0-SNAPSHOT</version.aegean>
+        <version.aegean>1.0.0-SNAPSHOT</version.aegean>
     </properties>
 
     <dependencies>
