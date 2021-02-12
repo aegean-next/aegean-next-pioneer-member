@@ -49,11 +49,11 @@
             <version>2.9.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>tech.aegean</groupId>
-            <artifactId>nirvana-member-store</artifactId>
-            <version>${version.aegean}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>tech.aegean</groupId>-->
+<!--            <artifactId>nirvana-member-store</artifactId>-->
+<!--            <version>${version.aegean}</version>-->
+<!--        </dependency>-->
 
     </dependencies>
 
