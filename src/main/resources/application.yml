@@ -1,6 +1,6 @@
 nacos:
   config:
-    server-addr: http://pioneer-member.aegean.tech
+    server-addr: pioneer-member.aegean.tech
     bootstrap:
       enable: true
     data-ids: base-database,base-swagger
