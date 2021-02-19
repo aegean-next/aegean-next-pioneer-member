@@ -5,10 +5,10 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.2</version>
+        <version>2.3.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>tech.aegean</groupId>
+    <groupId>tech.aegean.next</groupId>
     <artifactId>pioneer-store-member</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>pioneer-store-member</name>
@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <docker.image.prefix>aegean-next-pioneer</docker.image.prefix>
-        <version.aegean>1.0.0-SNAPSHOT</version.aegean>
+        <version.aegean>AN-0.0.1</version.aegean>
     </properties>
 
     <dependencies>
@@ -49,12 +49,29 @@
             <version>2.9.2</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>tech.aegean</groupId>-->
-<!--            <artifactId>nirvana-member-store</artifactId>-->
-<!--            <version>${version.aegean}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <version>0.2.7</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <version>0.2.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-actuator</artifactId>
+            <version>0.2.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tech.aegean.next</groupId>
+            <artifactId>nirvana-member-store</artifactId>
+            <version>${version.aegean}</version>
+        </dependency>
     </dependencies>
 
     <build>
